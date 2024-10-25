@@ -5,6 +5,11 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.nanduky.recyclerview03main.adapter.Calendar03Adapter
+import com.nanduky.recyclerview03main.clases.Calendar03DC
+import com.nanduky.recyclerview03main.clases.Calendar03ProviderC
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -16,6 +21,13 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        initRecycleView()
 
+    }
+
+    private fun initRecycleView() {
+        val rvCalendar03 = findViewById<RecyclerView>(R.id.rvCalendar03)
+        rvCalendar03.layoutManager = LinearLayoutManager(this)
+        rvCalendar03.adapter = Calendar03Adapter(Calendar03ProviderC.listCalendar03)
     }
 }
